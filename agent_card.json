@@ -1,0 +1,26 @@
+{
+  "name": "Dialectical-TAS Evaluator (Green Agent)",
+  "description": "An advanced QA assessment engine utilizing Thesis-Antithesis-Synthesis dialectical logic. Features dynamic rigor control, persona-based feedback, and multi-agent debate simulation to ensure high-fidelity grading.",
+  "version": "1.2.7",
+  "author": "CatchGoose",
+  "capabilities": [
+    "multi-agent-grading",
+    "dialectical-reasoning",
+    "adaptive-feedback",
+    "study-plan-generation"
+  ],
+  "parameters": {
+    "strictness": "0.0-1.0 (Semantic vs. Technical Rigor)",
+    "tone": "0.0-1.0 (Coach vs. Critic)",
+    "audience": "0.0-1.0 (Layman vs. Expert)"
+  },
+  "endpoints": {
+    "evaluate": "/evaluate",
+    "health": "/health"
+  },
+  "stack": {
+    "backend": "FastAPI",
+    "model": "Llama-3.3-70B-Instruct",
+    "provider": "Nebius AI"
+  }
+}
