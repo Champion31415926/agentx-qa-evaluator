@@ -1,0 +1,18 @@
+name: AgentBeats Sync
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Notify AgentBeats
+        run: |
+          curl -X POST https://api.agentbeats.org/v1/agent/refresh \
+          -H "Content-Type: application/json" \
+          -d '{"repository": "${{ github.repository }}"}'

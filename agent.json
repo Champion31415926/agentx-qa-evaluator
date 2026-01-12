@@ -1,8 +1,8 @@
 {
-  "name": "Dialectical-TAS Evaluator",
+  "name": "Dialectical-TAS-Evaluator",
   "type": "green",
-  "repository": "https://github.com/Champion31415926/agentx-qa-evaluator",
+  "version": "1.0.0",
   "docker_image": "blackpineapple/agentx-qa-evaluator:latest",
   "endpoint": "/evaluate",
-  "branch": "main"
+  "run_command": "sh run.sh"
 }
