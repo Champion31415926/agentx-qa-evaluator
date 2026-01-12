@@ -44,11 +44,7 @@ Our Green Agent doesn't just "check" answers; it **debates** them using the **Th
 ### Installation & Deployment
 
 1.  **Clone the project** and navigate to the root directory.
-2.  **Environment Setup**: Copy the example environment file and fill in your keys:
-    ```bash
-    cp .env.example .env
-    ```
-    Ensure `.env` contains:
+2.  **Environment Setup**: Ensure `.env` contains:
     ```env
     NEBIUS_API_KEY=your_actual_api_key_here
     NEBIUS_API_BASE=[https://api.tokenfactory.nebius.com/v1](https://api.tokenfactory.nebius.com/v1)
