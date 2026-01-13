@@ -8,7 +8,7 @@ from a2a.types import (
     AgentCard,
     AgentSkill,
 )
-from executor import Executor
+from src.executor import Executor
 
 def main():
     parser = argparse.ArgumentParser(description="Run the A2A agent.")
