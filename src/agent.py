@@ -51,10 +51,7 @@ class Agent:
             purple_url = str(eval_req.participants["purple_agent"])
             question = eval_req.config["question"]
             
-            question_msg = new_agent_text_message(question)
-            purple_response_msg = await self.messenger.talk_to_agent(question_msg, purple_url)
-            
-            purple_answer = get_message_text(purple_response_msg)
+            purple_answer = await self.messenger.talk_to_agent(question, purple_url)
             
             if not purple_answer:
                 raise ValueError("Purple Agent returned an empty answer.")
@@ -72,8 +69,8 @@ class Agent:
             
             await updater.add_artifact(
                 parts=[
-                    Part(root=TextPart(text=f"Final Score: {result.get('score', 0.0)}")),
-                    Part(root=DataPart(data=result))
+                    Part(root=TextPart(kind="text", text=f"Final Score: {result.get('score', 0.0)}")),
+                    Part(root=DataPart(kind="data", data=result))
                 ],
                 name="Evaluation Result",
             )
