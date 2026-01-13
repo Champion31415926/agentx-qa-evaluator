@@ -1,5 +1,5 @@
-from app.utils import normalize_text
-from app.nebius_client import smart_grade_answer
+from src.utils import normalize_text
+from src.nebius_client import smart_grade_answer
 from typing import Any
 import math
 

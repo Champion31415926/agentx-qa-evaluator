@@ -1,8 +1,0 @@
-{
-  "name": "Dialectical-TAS-Evaluator",
-  "type": "green",
-  "version": "1.0.0",
-  "docker_image": "blackpineapple/agentx-qa-evaluator:latest",
-  "endpoint": "/evaluate",
-  "run_command": "sh run.sh"
-}
