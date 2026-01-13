@@ -40,7 +40,7 @@ class Agent:
                 await updater.reject(new_agent_text_message(msg))
                 return
         except Exception as e:
-            await updater.reject(new_agent_text_message(f"Request structural error: {e}"))
+            await updater.reject(new_agent_text_message(f"Request structural error: {str(e)}"))
             return
 
         try:
@@ -53,6 +53,7 @@ class Agent:
             
             question_msg = new_agent_text_message(question)
             purple_response_msg = await self.messenger.talk_to_agent(question_msg, purple_url)
+            
             purple_answer = get_message_text(purple_response_msg)
             
             if not purple_answer:
@@ -79,4 +80,5 @@ class Agent:
             await updater.complete()
             
         except Exception as e:
-            await updater.failed(new_agent_text_message(f"Execution error: {str(e)}"))
+            error_msg = str(e)
+            await updater.failed(new_agent_text_message(f"Execution error: {error_msg}"))
