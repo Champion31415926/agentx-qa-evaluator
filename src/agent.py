@@ -80,5 +80,4 @@ class Agent:
             await updater.complete()
             
         except Exception as e:
-            error_msg = str(e)
-            await updater.failed(new_agent_text_message(f"Execution error: {error_msg}"))
+            await updater.failed(new_agent_text_message(f"Execution error: {str(e)}"))
