@@ -1,10 +1,16 @@
-FROM python:3.11-slim
-WORKDIR /app
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-COPY . .
-EXPOSE 8000
-EXPOSE 8501
-CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+FROM ghcr.io/astral-sh/uv:python3.13-bookworm
+
+RUN adduser agent
+USER agent
+WORKDIR /home/agent
+
+COPY pyproject.toml uv.lock README.md ./
+COPY src src
+
+RUN \
+    --mount=type=cache,target=/home/agent/.cache/uv,uid=1000 \
+    uv sync --locked
+
+ENTRYPOINT ["uv", "run", "src/server.py"]
+CMD ["--host", "0.0.0.0"]
+EXPOSE 9009
